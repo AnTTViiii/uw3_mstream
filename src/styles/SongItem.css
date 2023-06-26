@@ -1,0 +1,64 @@
+
+.songItemContainer, .albumItemContainer, .aAlbumItemContainer {
+    background-color:rgba(255, 255, 255, 0.204);
+    padding: 10px;
+    border-radius: 10px;
+    width: 150px;
+    height: 250px;
+    overflow: hidden;
+    margin: auto;
+    >p {
+        margin: 5px auto;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        >span:not(:last-of-type)::after {
+            content: ', ';
+        }
+    }
+    >img {
+        width: 100%;
+        border-radius: 5px;
+        aspect-ratio: 1;
+        object-fit: cover;
+        overflow: hidden;
+    }
+    .lastRow {
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        >div {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            >p {
+                margin: 0;
+            }
+        }
+        .purchases {
+            color: white;
+            >p {
+                margin: 0;
+            }
+            width: fit-content;
+            padding: 2px 7px;
+            height: auto;
+            border-radius: 25px;
+            background-color: rgba(255, 255, 255, 0.147);
+            font-size: small;
+        }
+        .playerIcon {
+            margin: 0;
+            color: white;
+            padding: 0;
+            
+        }
+    }
+    &:hover {
+        background-color: rgba(135, 137, 255, 0.564);
+        transition: all 0.2s ease-out;
+    }
+}

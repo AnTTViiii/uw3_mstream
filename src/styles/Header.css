@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@700&display=swap");
+.bg-scroll {
+    /* background-color: #060606ee; */
+    background:radial-gradient(circle at 41% 58%, rgba(150, 16, 34, 1) 2%, rgba(9, 1, 58, 1) 46%);
+}
+.bg-notscroll {
+    background-color: transparent;
+}
+.webLogo a {
+    display: flex;
+    align-items: center;
+    >img {
+        width: 80px;
+        margin: 3px 2px;
+    }
+    >p {
+        font-family: Fredoka;
+        text-shadow: 0 0 0 12px #699afb;
+        background-image: -webkit-linear-gradient(#699afb, #f4b2e9);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: calc(10px + 3vmin);
+        margin: 0;
+        padding: 0;
+    }
+    @media (max-width: 750px) {
+        >img {
+            width: 60px;
+        }
+        >p {
+            display: none;
+        }
+    }
+}
+.appHeader {
+    display: flex;
+    align-items: center;
+    column-gap: 2vw;
+    width: 100%;
+    >a {
+        padding: 10px 5px;
+        text-align: center;
+    }
+    >a.active {
+        font-weight: bold;
+        color: yellow;
+    }
+    @media (max-width: 750px) {
+        column-gap: 1.5vw;
+    }
+}
+.headerRight {
+    display: flex;
+    align-items: center;
+    column-gap: 2vw;
+    float: right;
+    margin-left: auto;
+    @media (max-width: 750px) {
+        column-gap: 1.4vw;
+    }
+}
+input.searchBox {
+    padding: 12px 10px 12px 40px;
+    align-items: center;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
+    color: white;
+    border-radius: 25px;
+    width: 35vw;
+    border: none;
+    background-color: #2a2854;
+    margin: 5px 2px;
+    &:focus {
+        outline: 2px solid white;
+    }
+    &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: white;
+        opacity: 1; /* Firefox */
+    }
+      
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: white;
+    }
+      
+    &::-ms-input-placeholder { /* Microsoft Edge */
+        color: white;
+    }
+}
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 15px;
+    width: 15px;
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='yellow'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
+}
+/* Account.js */
+.user img {
+    width: 8vmin;
+    height: 8vmin;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1.5px solid cyan;
+    margin: 5px 10px;
+    cursor: pointer;
+}
+
+.popup-content {
+    background-color: rgb(99, 91, 255) !important;
+    border: none !important;
+    margin: 0;
+    padding: 0;
+}
+.popup-arrow {
+    color: rgba(137, 121, 255, 0.147);
+}
+.accountItemPopup {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    cursor: pointer;
+    &.row1 {
+        border-radius: 5px 5px 0 0;
+    }
+    &.row2 {
+        border-radius: 0 0 5px 5px;
+    }
+    &:hover .userIcon {
+        color: #2a2835;
+    }
+}
+.accountItemPopup:hover {
+    background-color: rgb(255, 255, 255);
+    font-weight: bold;
+    color: #2a2854;
+}
+.btnCloseForm {
+    background-color: white;
+    margin-left: auto;
+    color: #2a2854;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+    &:hover {
+        background-color: #2a2854;
+        color: white;
+    }
+}
+.loginForm {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    >p {
+        text-align: left;
+    }
+    >p>input {
+        width: 100%;
+        height: 25px;
+        border-radius: 3px;
+        border: none;
+        &:focus {
+            border: none;
+        }
+    }
+}
+.btnSubmit {
+    background-color: #2a2854;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: medium;
+    &:hover { 
+        background-color: #2a2835;
+    }
+}
+.pwField {
+    position: relative;
+    display: flex;
+    align-items: center;
+}

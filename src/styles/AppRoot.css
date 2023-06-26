@@ -1,0 +1,33 @@
+@font-face {
+    font-family: uw3_lyrics;
+    src: url(../fonts/M2PRegular-00xo.ttf);
+}
+.container {
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+.outlet, .footer {
+    position: relative;
+    top: 10vh;
+}
+.outlet {
+    font-family: uw3_lyrics;
+}
+.footer {
+    margin-top: auto;
+}
+.favIcon {
+    color: rgb(255, 0, 0);
+}

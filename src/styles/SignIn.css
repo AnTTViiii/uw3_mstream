@@ -1,0 +1,175 @@
+.signinContainer {
+  width: 90%;
+  max-width: 700px;
+  margin: 20px auto;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.signinContainer h1 {
+  color: #ff7394;
+  font-weight: bolder;
+  font-size: xx-large;
+  margin: 1vh auto;
+  text-align: center;
+}
+.dividingLine {
+  margin-top: 20px;
+  text-align: center;
+  position: relative;
+}
+.dividingLine span {
+  display: inline-block;
+}
+.dividingLine span:before,
+.dividingLine span:after {
+  border-top: 1px groove rgb(204, 204, 204);
+  display: block;
+  content: " ";
+  width: 35%;
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+}
+.dividingLine span:after {
+  right: 0;
+  left: auto;
+}
+.signinForm {
+  margin-top: 20px;
+  width: 100%;
+}
+.signinForm .div1 {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: #f5f5f5;
+  padding: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+}
+.signinForm .div1 .signinIcon {
+  margin: auto 20px auto 10px;
+}
+.signinForm .div1 div {
+  width: 100%;
+}
+.signinForm .div1 p {
+  font-size: small;
+}
+.signinForm .div1 input,
+.signinForm .div1 input:focus,
+.signinForm .div1 input:active,
+.signinForm .div1 input:-webkit-autofill,
+.signinForm .div1 input:-webkit-autofill:hover,
+.signinForm .div1 input:-webkit-autofill:focus,
+.signinForm .div1 input:-webkit-autofill:active {
+  border: none;
+  width: 100%;
+  height: 23px;
+  background-color: transparent;
+  -webkit-box-shadow: 0 0 0 30px #f5f5f5 inset !important;
+  font-size: medium;
+  width: 100%;
+}
+.showHideIcon {
+  border: none;
+  background-color: transparent;
+}
+.signinForm .div3 {
+  margin: -10px 0 20px 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.signinForm .div3 a,
+.signinForm .div3 a:visited,
+.signinForm .div3 .forgotPwBtn {
+  color: #ff7394;
+  cursor: pointer;
+}
+.signinForm .div3 a:hover,
+.signinForm .div3 .forgotPwBtn:hover {
+  color: #ffb0c3;
+}
+input.submitSignin {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background: #ff7394;
+  padding: 17px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  font-size: large;
+}
+.submitSignin {
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+input.submitSignin a,
+input.submitSignin a:visited {
+  color: white;
+}
+input.submitSignin:hover,
+.forgotPwBody input[type="submit"]:hover,
+.closeBtn:hover {
+  background-color: #ffb0c3;
+}
+
+/* CSS trang quên mật khẩu */
+.forgotPwContainer {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 99;
+  background-color: #e4e4e4a3;
+  top: 0;
+  left: 0;
+}
+.forgotPwBody {
+  position: relative;
+  width: 50vw;
+  height: fit-content;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.forgotPwBody input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px groove gray;
+  margin-top: 10px;
+}
+.forgotPwBody input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ff7394;
+  color: white;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.closeBtn {
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  transform: translate(0, 0);
+  background: #ff7394;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+}

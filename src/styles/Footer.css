@@ -1,0 +1,10 @@
+.footerContainer {
+    display: flex;
+    background-color: black;
+    padding: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    .f-right {
+        display: flex;
+    }
+}

@@ -1,0 +1,116 @@
+@font-face {
+    font-family: uw3_lyrics;
+    src: url(../fonts/M2PRegular-00xo.ttf);
+}
+.songContainer, .albumContainer, .artistContainer {
+    width: 80%;
+    margin: auto;
+    .trackHeader {
+        width: calc(100%-20px);
+        padding: 10px;
+        border-radius:10px;
+        aspect-ratio: 3;
+        background-color: rgba(106, 74, 160, 0.255);
+        display: flex;
+        >img {
+            width: auto;
+            aspect-ratio: 1;
+            object-fit: cover;
+            margin: 10px;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+    }
+    .trackDetails {
+        position: relative;
+        margin-top: auto;
+        >h1 {
+            font-family: uw3_lyrics;
+            font-size: xxx-large;
+            margin: 5px 0;
+        }
+        >p {
+            margin: 0 0 5px 0;
+            >span:not(:last-of-type)::after {
+                content: ', ';
+            }
+        }
+    }
+    .lyrics {
+        font-family: uw3_lyrics;
+        white-space: pre-wrap;
+        margin: 5px 5px 10px;
+    }
+    .trackActions {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        padding: 15px 0;
+        .purchases {
+            padding: 5px 15px;
+            border-radius: 25px;
+            background-color: rgba(255, 255, 255, 0.147);
+            >p {
+                margin: 0;
+            }
+        }
+        .playerIcon, .purchases {
+            color: white;
+        }
+        .trackActionIcon {
+            font-size: xxx-large;
+        }
+    }
+}
+.trackList {
+    margin-bottom: 20px;
+}
+.tl-header {
+    display: flex;
+    position: relative;
+    align-items: center;
+    >p {
+        font-weight: bold;
+        margin: 10px 0;
+        &:nth-of-type(1) {
+            margin: 0 15px;
+        }
+        &:nth-of-type(3) {
+            position: absolute;
+            left: 65%;
+            transform: translateX(-35%);
+            width: 15vw;
+            text-align: right;
+        }
+        &:nth-of-type(4) {
+            margin-left: auto;
+            margin-right: 15px;
+        }
+    }
+}
+/* artist.js */
+.artistContainer {
+    .trackHeader {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: rgba(106, 74, 160, 0.255);
+        >img {
+            box-shadow: rgba(158, 158, 158, 0.147) 0 0 20px 2px;
+        }
+    }
+}
+.artistAlbums {
+    >h2 {
+        margin: 40px 0 30px;
+        color: cyan;
+        font-weight: bold;
+    }
+    >div {
+        margin-bottom: 20px;
+        .aAlbumItemContainer&:hover {
+            background-color: rgba(135, 137, 255, 0.564);
+            transition: all 0.2s ease-out;
+        }
+    }
+    
+}

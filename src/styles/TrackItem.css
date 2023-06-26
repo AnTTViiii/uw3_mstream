@@ -1,0 +1,67 @@
+.trackItemContainer {
+    padding: 10px 15px 10px 10px;
+    background-color: rgba(255, 255, 255, 0.147);
+    height: 30px;
+    width: calc(100% - 30px);
+    border: 1px solid rgba(255, 255, 255, 0.397);
+    border-left: none;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+    >p {
+        margin: 0;
+    }
+    .first-col {
+        align-items: center;
+        display: flex;
+        width: max-content;
+        >p {
+            padding-left: 8px;
+        }
+    }
+    .trackItemTitle {
+        position: absolute;
+        left: 45px;
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        >img {
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+            overflow: hidden;
+        }
+    }
+    .trackStreams {
+        position: absolute;
+        left: 65%;
+        transform: translateX(-35%);
+        width: 15vw;
+        text-align: right;
+    }
+    .playIcon {
+        display: none;
+        color: white;
+        align-items: center;
+        margin: 0;
+        padding: 1px;
+    }
+    .favsIcon {
+        color: white;
+    }
+    .last-col {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+}
+.trackItemContainer:hover {
+    background-color: rgba(179, 174, 255, 0.359);
+    .first-col p {
+        display: none !important;
+    }
+    .playIcon {
+        display:flex !important;
+    }
+}

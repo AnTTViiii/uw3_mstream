@@ -12,20 +12,67 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-.App-header {
-  background-color: #282c34;
+@font-face {
+  font-family: uw3mstream;
+  src: url(./fonts/Typo_Round.otf);
+}
+@font-face {
+  font-family: uw3_lyrics;
+  src: url(./fonts/M2PRegular-00xo.ttf);
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  background:-moz-radial-gradient(circle at 41% 58%, rgba(150, 16, 34, 1) 2%, rgba(9, 1, 58, 1) 46%);
+  /* safari 5.1+,chrome 10+ */
+  background:-webkit-radial-gradient(circle at 41% 58%, rgba(150, 16, 34, 1) 2%, rgba(9, 1, 58, 1) 46%);
+  /* opera 11.10+ */
+  background:-o-radial-gradient(circle at 41% 58%, rgba(150, 16, 34, 1) 2%, rgba(9, 1, 58, 1) 46%);
+  /* ie 10+ */
+  background:-ms-radial-gradient(circle at 41% 58%, rgba(150, 16, 34, 1) 2%, rgba(9, 1, 58, 1) 46%);
+  /* global 92%+ browsers support */
+  background:radial-gradient(circle at 41% 58%, rgba(150, 16, 34, 1) 2%, rgba(9, 1, 58, 1) 46%);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-attachment: fixed;
+  color: white;
+  font-family: uw3mstream;
+  letter-spacing: 1.2px;
+  
+  /**/
+  /* background-image: url("https://images.unsplash.com/photo-1615714145252-5360513726a4"); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1, h2, h3 {
+  font-size: calc(7px + 2vmin);
+  font-family: uw3mstream;
+}
+/* html */
+::-webkit-scrollbar {
+  display: none;
+}
+::-moz-selection {
+  /* Code for Firefox */
+  background: #461be0c8;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+#fontEN {
+  font-family: uw3mstream;
+}
+#fontVI {
+  font-family: uw3_lyrics;
+}
+::selection {
+  background: #461be0c8;
+  color: white;
+}
+html a {
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: yellow;
+  }
 }
 
 @keyframes App-logo-spin {
