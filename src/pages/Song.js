@@ -26,7 +26,9 @@ function Song() {
     const handleFav = () => {
         setFav(!fav);
     }
-
+    function dot3digits(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
     return (
         <div className='songContainer'>
             {song.map((item)=>
@@ -38,11 +40,11 @@ function Song() {
                     <h1>{item.songname}</h1>
                     <p>
                         {item.artist.map((a) => 
-                            <span><Link to={`/artist/${a.artistname}`} state={{id: a.artistid}}>{a.artistname}</Link></span>
+                            <span><Link to={`/artist/${a.artistid}`}>{a.artistname}</Link></span>
                         )}
-                        &nbsp;• <Link to={`/album/${item.albumname}`} state={{id: item.albumid}}>{item.albumname}</Link>
+                        &nbsp;• <Link to={`/album/${item.albumid}`}>{item.albumname}</Link>
                         &nbsp;• {new Date(item.releaseDate).getFullYear()}
-                        &nbsp;• {item.streams} streams</p>
+                        &nbsp;• {dot3digits(item.streams)} streams</p>
                 </div>
             </div>
             <div className='trackActions'>

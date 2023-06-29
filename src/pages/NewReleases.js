@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 
 import "../styles/Home.css";
@@ -6,7 +6,9 @@ import { SongData } from '../data/SongData';
 import { AlbumData } from '../data/AlbumData';
 import SongItem from '../items/SongItem';
 import AlbumItem from '../items/AlbumItem';
+import PlayerContext from '../PlayerContext';
 function NewReleases() {
+  const song = useContext(PlayerContext);
   return (
     <div className='homeContainer'>
         <div className='homeBody'>
@@ -14,7 +16,7 @@ function NewReleases() {
                 <h2>New Releases Songs</h2>
                 <div className='songsList'>
                   {SongData.map((item, key) => 
-                    <SongItem item={item} key={key} />
+                    <SongItem item={item} index={key} tracks={SongData} song={song} />
                   )}
                 </div>
             </div>

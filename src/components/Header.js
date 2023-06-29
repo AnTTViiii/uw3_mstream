@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Account from './Account'
 import '../styles/Header.css'
 function Header() {
+  // const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname.split("/");
   let page = path[1];
@@ -32,7 +33,8 @@ function Header() {
         <Link className={page === "artists" ? 'active' : ''} to={`/artists`}>Artists</Link>
         <div className='headerRight'>
           <div className='searchBar'>
-            <input type='search' placeholder='Songs, Albums, Artists?' className='searchBox' />
+            <input type='search' placeholder='Songs, Albums, Artists?' className='searchBox'
+               />
           </div>
           <Account />
         </div>

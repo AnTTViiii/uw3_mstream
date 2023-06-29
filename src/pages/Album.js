@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { SongData } from '../data/SongData'
 import "../styles/Song.css"
@@ -9,6 +9,7 @@ import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import { IconButton } from '@mui/material';
 import { AlbumData } from '../data/AlbumData';
 import TrackItem from '../items/TrackItem';
+import PlayerContext from '../PlayerContext';
 
 function Album() {
   const location = useLocation();
@@ -35,8 +36,10 @@ function Album() {
   const handleFav = () => {
       setFav(!fav);
   }
-  
-
+  const song = useContext(PlayerContext);
+  function dot3digits(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
 //   useEffect(() => {
 //     const audio = document.getElementById('myAudio');
 //     let time = [];
@@ -52,8 +55,6 @@ function Album() {
 //     });
 //     console.log(JSON.stringify(time[0]));
 //     const duration = document.querySelectorAll("#duration");
-    
-    
 // });
 
   return (
@@ -69,7 +70,7 @@ function Album() {
                       <Link to={`/artist/${item.owner}`} state={{id: item.poster}}>{item.owner}</Link>
                       &nbsp;• <span title={new Date(item.releaseDate).toUTCString()}>{new Date(item.releaseDate).getFullYear()}</span>
                       &nbsp;• {songs.length} songs
-                      &nbsp;• {streams} streams</p>
+                      &nbsp;• {dot3digits(streams)} streams</p>
               </div>
           </div>
           <div className='trackActions'>
@@ -88,7 +89,7 @@ function Album() {
               <p>Duration</p>
             </div>
             {songs.map((item,key) => 
-              <TrackItem item={item} seq={key} />
+              <TrackItem item={item} index={key} tracks={songs} song={song} />
             )}
           </div>
           </>

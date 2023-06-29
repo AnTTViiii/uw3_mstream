@@ -5,7 +5,7 @@ import KeyIcon from "@mui/icons-material/Key";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { Alert, Checkbox, FormControlLabel, IconButton, Input, } from "@mui/material";
-import ForgotPassword from "./ForgotPassword";
+import ForgotPassword from "../components/ForgotPassword";
 import { Error, PersonRounded } from "@mui/icons-material";
 
 function SignIn() {

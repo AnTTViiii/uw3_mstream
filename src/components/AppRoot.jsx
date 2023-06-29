@@ -1,7 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import SideBar from "./SideBar";
-import MusicPlayer from "./MusicPlayer";
+import Player from "./Player";
 import Footer from "./Footer";
 import Header from "./Header";
 import "../styles/AppRoot.css";
@@ -17,7 +16,7 @@ function AppRoot() {
             <div className="footer">
                 <Footer />
             </div>
-            <MusicPlayer />
+            <Player />
         </div>
     )
 }

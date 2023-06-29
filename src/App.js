@@ -1,5 +1,8 @@
 import './App.css';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { PlayerProvider } from "./PlayerContext";
+import store from "./stores/store";
+import { Provider } from 'react-redux';
 import React from "react";
 import AppRoot from "./components/AppRoot";
 import Home from "./pages/Home";
@@ -10,11 +13,11 @@ import Account from './pages/Account';
 import Album from "./pages/Album";
 import Song from './pages/Song';
 import Artist from './pages/Artist';
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
+import Search from './pages/Search';
 import NotFound from './pages/NotFound';
 
 function App() {
+  window.onbeforeunload = localStorage.setItem("play", JSON.stringify(false));
   const router = createBrowserRouter([
     {
       path: "/",
@@ -33,13 +36,13 @@ function App() {
           element: <Library />,
         },
         {
-          path: "signin",
-          element: <SignIn />,
+          path: "search",
+          element: <Search />,
         },
-        {
-          path: "signup",
-          element: <SignUp />,
-        },
+        // {
+        //   path: "signup",
+        //   element: <SignUp />,
+        // },
         {
           path: "newreleases",
           element: <NewReleases />,
@@ -88,7 +91,11 @@ function App() {
     },
   ]);
   return (
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <PlayerProvider>
+          <RouterProvider router={router} />
+      </PlayerProvider>
+    </Provider>
   );
 }
 

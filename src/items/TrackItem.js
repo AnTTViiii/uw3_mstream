@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux";
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 import PauseRoundedIcon from '@mui/icons-material/PauseRounded';
-import VerticalAlignBottomRoundedIcon from '@mui/icons-material/VerticalAlignBottomRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import { IconButton, duration } from '@mui/material';
 import "../styles/TrackItem.css"
 
-function TrackItem({item, seq}) {
+function TrackItem({item, song, index, tracks}) {
+    const { isAuthed } = useSelector((state) => state.auth); //user
     const [fav, setFav] = useState(false);
     const [play, setPlay] = useState(false);
     const handlePlay = () => {
@@ -24,12 +25,28 @@ function TrackItem({item, seq}) {
         let time = "" + minutes + ":" + seconds;
         return time
     };
-
+    function dot3digits(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
     return (
         <div className='trackItemContainer'>
             <div className='first-col'>
-                <p style={!play ? {display: `flex`} : {display: `none`}}>{seq+1}</p>
-                <IconButton className='playIcon' onClick={handlePlay} style={play ? {display: `flex`} : {display: `none`}}>
+                <p style={!play ? {display: `flex`} : {display: `none`}}>{index+1}</p>
+                <IconButton className='playIcon' onClick={() => {
+                        if (song.isUsing !== true) { song.setUsing(true); }
+                        song.setPlay(true);
+                        song.setSong(item);
+                        song.setTracks(tracks);
+                        song.setPlaylist(tracks);
+                        song.setSongIndex(index);
+                        localStorage.setItem("song", JSON.stringify(item));
+                        localStorage.setItem("tracks", JSON.stringify(tracks));
+                        localStorage.setItem("playlist", JSON.stringify(tracks));
+                        localStorage.setItem("index", JSON.stringify(index));
+                        localStorage.setItem("play", JSON.stringify(true));
+                        localStorage.setItem("currentTime", 0);
+                        song.setCurrentTime(0);
+                    }} style={play ? {display: `flex`} : {display: `none`}}>
                     {play ? <PauseRoundedIcon /> : <PlayArrowRoundedIcon style={{display: `flex`, zIndex:2}} />}
                 </IconButton>
             </div>
@@ -37,10 +54,12 @@ function TrackItem({item, seq}) {
                 <img src={item.songImg} alt={item.songname} />
                 <p title={item.songname}><Link to={`/song/${item.songid}`} state={{id: item.songid}}>{item.songname}</Link></p>
             </div>
-            <p className='trackStreams'>{item.streams}</p>
+            <p className='trackStreams'>{dot3digits(item.streams)}</p>
             <p className='last-col'>
                 <IconButton onClick={handleFav} className='favsIcon'>
-                    {fav ? <FavoriteRoundedIcon className='favIcon' /> : <FavoriteBorderRoundedIcon />}
+                    {isAuthed ? (
+                        fav ? <FavoriteRoundedIcon className='favIcon' /> : <FavoriteBorderRoundedIcon />
+                    ) : ( <FavoriteBorderRoundedIcon /> )}
                 </IconButton>
                 <p id='duration'>{getStringDuration(item.duration)}</p>
             </p>

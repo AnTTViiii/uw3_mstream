@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { SongData } from '../data/SongData'
 import "../styles/Song.css"
@@ -11,6 +11,7 @@ import { AlbumData } from '../data/AlbumData';
 import TrackItem from '../items/TrackItem';
 import { ArtistData } from '../data/ArtistData';
 import ArtistAlbumItem from '../items/ArtistAlbumItem';
+import PlayerContext from '../PlayerContext';
 
 function Artist() {
   const location = useLocation();
@@ -43,6 +44,10 @@ function Artist() {
   const handleFav = () => {
       setFav(!fav);
   }
+  const song = useContext(PlayerContext);
+  function dot3digits(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
   return (
     <div className='artistContainer'>
       {artist.map((item)=>
@@ -55,7 +60,7 @@ function Artist() {
               <p>Artist</p>
               <h1>{item.artistname}</h1>
               <p>
-                {item.follower} followers
+                {dot3digits(item.follower)} followers
                 &nbsp;• {songs.length} songs
                 &nbsp;• {albums.length} albums
               </p>
@@ -77,8 +82,9 @@ function Artist() {
           <p>Streams</p>
           <p>Duration</p>
         </div>
-        <div style={{overflow: `hidden`, overflowY: `scroll`, maxHeight: `513px`, margin: 0, padding: 0}}>{songs.map((item,key) => 
-          <TrackItem item={item} seq={key} />
+        <div style={{overflow: `hidden`, overflowY: `scroll`, maxHeight: `513px`, margin: 0, padding: 0}}>
+        {songs.map((item,key) => 
+          <TrackItem item={item} index={key} tracks={songs} song={song} />
         )}</div>
       </div>
       <div className='artistAlbums'>

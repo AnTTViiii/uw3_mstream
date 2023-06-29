@@ -29,7 +29,7 @@ function NotFound() {
       <div style={div2}>
         <div style={div3}>
             <h1 style={h1}>4</h1>
-            <img src={require('../images/fnf.png')} alt='404' width={'80px'} height={'80px'}/>
+            <img src={require('../media/fnf.png')} alt='404' width={'80px'} height={'80px'}/>
             <h1 style={h1}>4</h1>
         </div>
         <h3>Oops!!</h3>

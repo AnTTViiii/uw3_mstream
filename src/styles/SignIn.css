@@ -87,12 +87,11 @@
 }
 .signinForm .div3 a,
 .signinForm .div3 a:visited,
-.signinForm .div3 .forgotPwBtn {
+.signinForm .div3 {
   color: #ff7394;
   cursor: pointer;
 }
-.signinForm .div3 a:hover,
-.signinForm .div3 .forgotPwBtn:hover {
+.signinForm .div3 a:hover {
   color: #ffb0c3;
 }
 input.submitSignin {
@@ -115,7 +114,6 @@ input.submitSignin a:visited {
   color: white;
 }
 input.submitSignin:hover,
-.forgotPwBody input[type="submit"]:hover,
 .closeBtn:hover {
   background-color: #ffb0c3;
 }
@@ -125,51 +123,67 @@ input.submitSignin:hover,
   position: fixed;
   width: 100%;
   height: 100vh;
-  z-index: 99;
-  background-color: #e4e4e4a3;
+  z-index: 14;
+  background-color: #0000005a;
   top: 0;
   left: 0;
 }
 .forgotPwBody {
   position: relative;
-  width: 50vw;
+  width: 40%;
   height: fit-content;
-  background: #fff;
-  border-radius: 8px;
+  background: rgb(99, 91, 255);
+  border-radius: 10px;
   padding: 20px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+.forgotPwBody form {
+  display: flex;
+  margin-top: 10px;
+  overflow: hidden;
+  justify-content: space-between;
+}
 .forgotPwBody input[type="email"] {
-  width: 100%;
   padding: 10px;
   border-radius: 5px;
-  border: 1px groove gray;
-  margin-top: 10px;
+  border: 1px solid gray;
+  margin: 10px 5px 0 0;
+  width: 70%;
+  max-width: calc(100% - 70px);
 }
-.forgotPwBody input[type="submit"] {
-  width: 100%;
+.forgotPwBody input[type="button"] {
+  min-width: 65px;
+  width: 28%;
   padding: 10px;
   border-radius: 5px;
   border: none;
-  background-color: #ff7394;
+  background-color: #2a2854;
   color: white;
   margin-top: 10px;
   cursor: pointer;
+  &:hover {
+    color: #2a2854;
+    background-color: rgb(217, 217, 217);
+  }
 }
 .closeBtn {
   cursor: pointer;
   position: absolute;
-  right: 5px;
-  top: 5px;
+  right: 10px;
+  top: 10px;
   transform: translate(0, 0);
-  background: #ff7394;
-  color: #fff;
+  background: #fff;
+  color: #000;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  line-height: 20px;
   text-align: center;
+  font-style: normal;
+  &:hover {
+    background-color: #2a2854;
+    color: white;
+  }
 }
