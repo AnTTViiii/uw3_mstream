@@ -13,10 +13,10 @@ function SongItem({item, song, index, tracks}) {
     const { isAuthed } = useSelector((state) => state.auth); //user
     const [fav, setFav] = useState(false);
     // = useState(isAuthed ? item.isFavorite : 0);
-    const [play, setPlay] = useState(false);
-    const handlePlay = () => {
-        setPlay(!play);
-    }
+    // const [play, setPlay] = useState(false);
+    // const handlePlay = () => {
+    //     setPlay(!play);
+    // }
     const handleFav = () => {
         setFav(!fav);
     }
@@ -46,7 +46,7 @@ function SongItem({item, song, index, tracks}) {
                         localStorage.setItem("currentTime", 0);
                         song.setCurrentTime(0);
                     }}>
-                    {play ? <PauseRoundedIcon /> : <PlayArrowRoundedIcon />}
+                    {(song.isUsing && song.play && JSON.parse(localStorage.getItem("song")).songid === item.songid) ? <PauseRoundedIcon /> : <PlayArrowRoundedIcon />}
                 </IconButton>
                 <IconButton className='purchases'>
                     <p id='fontVI'>0.0025</p>

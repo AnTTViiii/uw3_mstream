@@ -57,7 +57,7 @@ h1, h2, h3 {
   background: #461be0c8;
   color: white;
 }
-#fontEN {
+button, #fontEN {
   font-family: uw3mstream;
 }
 #fontVI {

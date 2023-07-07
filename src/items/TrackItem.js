@@ -5,7 +5,7 @@ import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 import PauseRoundedIcon from '@mui/icons-material/PauseRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
-import { IconButton, duration } from '@mui/material';
+import { IconButton } from '@mui/material';
 import "../styles/TrackItem.css"
 
 function TrackItem({item, song, index, tracks}) {
@@ -31,7 +31,7 @@ function TrackItem({item, song, index, tracks}) {
     return (
         <div className='trackItemContainer'>
             <div className='first-col'>
-                <p style={!play ? {display: `flex`} : {display: `none`}}>{index+1}</p>
+                <p style={!(song.isUsing && song.play && JSON.parse(localStorage.getItem("song")).songid === item.songid) ? {display: `flex`} : {display: `none`}}>{index+1}</p>
                 <IconButton className='playIcon' onClick={() => {
                         if (song.isUsing !== true) { song.setUsing(true); }
                         song.setPlay(true);
@@ -46,8 +46,8 @@ function TrackItem({item, song, index, tracks}) {
                         localStorage.setItem("play", JSON.stringify(true));
                         localStorage.setItem("currentTime", 0);
                         song.setCurrentTime(0);
-                    }} style={play ? {display: `flex`} : {display: `none`}}>
-                    {play ? <PauseRoundedIcon /> : <PlayArrowRoundedIcon style={{display: `flex`, zIndex:2}} />}
+                    }} style={(song.isUsing && song.play && JSON.parse(localStorage.getItem("song")).songid === item.songid) ? {display: `flex`} : {display: `none`}}>
+                    {(song.isUsing && song.play && JSON.parse(localStorage.getItem("song")).songid === item.songid) ? <PauseRoundedIcon /> : <PlayArrowRoundedIcon style={{display: `flex`, zIndex:2}} />}
                 </IconButton>
             </div>
             <div className='trackItemTitle'>

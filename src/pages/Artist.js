@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { SongData } from '../data/SongData'
 import "../styles/Song.css"
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 import PauseRoundedIcon from '@mui/icons-material/PauseRounded';
-import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
-import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
+import { StarBorderRounded, StarRounded } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
 import { AlbumData } from '../data/AlbumData';
 import TrackItem from '../items/TrackItem';
@@ -36,18 +36,35 @@ function Artist() {
       }
     })
   });
-  const [fav, setFav] = useState(false);
+  const { isAuthed } = useSelector((state) => state.auth);
+  const [follow, setFollow] = useState(false);
   const [play, setPlay] = useState(false);
   const handlePlay = () => {
       setPlay(!play);
   }
-  const handleFav = () => {
-      setFav(!fav);
+  const handleFollow = () => {
+    setFollow(!follow);
   }
   const song = useContext(PlayerContext);
   function dot3digits(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
+  const playAlbum = () => {
+    song.setUsing(true);
+    song.setTracks(songs);
+    song.setSongIndex(0);
+    song.setSong(songs[0]);
+    song.setPlay(true);
+    // song.setPlaylist(song[0]);
+    localStorage.setItem("song", JSON.stringify(songs[0]));
+    localStorage.setItem("tracks", JSON.stringify(songs));
+    localStorage.setItem("playlist", JSON.stringify(songs));
+    localStorage.setItem("index", JSON.stringify(0));
+    localStorage.setItem("play", JSON.stringify(true));
+    localStorage.setItem("currentTime", 0);
+    song.setCurrentTime(0);
+    song.setPlaylist(songs);
+  };
   return (
     <div className='artistContainer'>
       {artist.map((item)=>
@@ -63,15 +80,16 @@ function Artist() {
                 {dot3digits(item.follower)} followers
                 &nbsp;• {songs.length} songs
                 &nbsp;• {albums.length} albums
+                &nbsp;• {dot3digits(streams)} streams
               </p>
           </div>
       </div>
       <div className='trackActions'>
-          <IconButton className='playerIcon' onClick={handlePlay}>
+          <IconButton className='playerIcon' onClick={()=>{handlePlay(); playAlbum()}}>
               {play ? <PauseRoundedIcon className='trackActionIcon' /> : <PlayArrowRoundedIcon className='trackActionIcon' />}
           </IconButton>
-          <IconButton className='playerIcon' onClick={handleFav}>
-              {fav ? <FavoriteRoundedIcon className='favIcon trackActionIcon' /> : <FavoriteBorderRoundedIcon className='trackActionIcon'/>}
+          <IconButton className='playerIcon' onClick={handleFollow}>
+            {isAuthed ? (follow ? <StarRounded className='starIcon trackActionIcon' /> : <StarBorderRounded className='trackActionIcon'/>) : <StarBorderRounded className='trackActionIcon'/>}
           </IconButton>
       </div>
       <div className='trackList'>

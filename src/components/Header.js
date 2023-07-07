@@ -33,8 +33,7 @@ function Header() {
         <Link className={page === "artists" ? 'active' : ''} to={`/artists`}>Artists</Link>
         <div className='headerRight'>
           <div className='searchBar'>
-            <input type='search' placeholder='Songs, Albums, Artists?' className='searchBox'
-               />
+            <input type='search' placeholder='Songs, Albums, Artists?' className='searchBox' />
           </div>
           <Account />
         </div>

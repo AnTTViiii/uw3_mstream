@@ -1,11 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { SongData } from '../data/SongData'
 import "../styles/Song.css"
-import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
-import PauseRoundedIcon from '@mui/icons-material/PauseRounded';
-import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
-import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
+import { PlayArrowRounded, PauseRounded } from '@mui/icons-material';
+import { FavoriteBorderRounded, FavoriteRounded } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
 import { AlbumData } from '../data/AlbumData';
 import TrackItem from '../items/TrackItem';
@@ -13,7 +12,6 @@ import PlayerContext from '../PlayerContext';
 
 function Album() {
   const location = useLocation();
-  // let id = location.state.id;
   const path = location.pathname.split("/");
   let id = parseInt(path[2]);
   const album = [], songs = [];
@@ -23,11 +21,12 @@ function Album() {
       album.push(item);
   });
   SongData.map((item) => {
-      if (item.albumid === id) {
-        songs.push(item);
-        streams += item.streams;
-      }
+    if (item.albumid === id) {
+      songs.push(item);
+      streams += item.streams;
+    }
   });
+  const { isAuthed } = useSelector((state) => state.auth);
   const [fav, setFav] = useState(false);
   const [play, setPlay] = useState(false);
   const handlePlay = () => {
@@ -40,22 +39,22 @@ function Album() {
   function dot3digits(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
-//   useEffect(() => {
-//     const audio = document.getElementById('myAudio');
-//     let time = [];
-//     document.querySelectorAll("#myAudio").forEach(element=> element.onloadedmetadata = function() {
-//         let duration = element.duration;
-
-//         let minutes = Math.floor(duration / 60);
-//         let seconds = Math.round(duration - (minutes * 60));
-//         if (minutes < 10) {minutes = "0"+minutes;}
-//         if (seconds < 10) {seconds = "0"+seconds;}
-//         let string = "" + minutes + ":" + seconds
-//         time.push(string);
-//     });
-//     console.log(JSON.stringify(time[0]));
-//     const duration = document.querySelectorAll("#duration");
-// });
+  const playAlbum = () => {
+    song.setUsing(true);
+    song.setTracks(songs);
+    song.setSongIndex(0);
+    song.setSong(songs[0]);
+    song.setPlay(true);
+    // song.setPlaylist(song[0]);
+    localStorage.setItem("song", JSON.stringify(songs[0]));
+    localStorage.setItem("tracks", JSON.stringify(songs));
+    localStorage.setItem("playlist", JSON.stringify(songs));
+    localStorage.setItem("index", JSON.stringify(0));
+    localStorage.setItem("play", JSON.stringify(true));
+    localStorage.setItem("currentTime", 0);
+    song.setCurrentTime(0);
+    song.setPlaylist(songs);
+  };
 
   return (
       <div className='albumContainer'>
@@ -67,18 +66,18 @@ function Album() {
                   <p>{ (songs.length) > 1 ? 'Album' : 'Single' }</p>
                   <h1>{item.albumname}</h1>
                   <p>
-                      <Link to={`/artist/${item.owner}`} state={{id: item.poster}}>{item.owner}</Link>
+                      <Link to={`/artist/${item.poster}`}>{item.owner}</Link>
                       &nbsp;• <span title={new Date(item.releaseDate).toUTCString()}>{new Date(item.releaseDate).getFullYear()}</span>
                       &nbsp;• {songs.length} songs
                       &nbsp;• {dot3digits(streams)} streams</p>
               </div>
           </div>
           <div className='trackActions'>
-              <IconButton className='playerIcon' onClick={handlePlay}>
-                  {play ? <PauseRoundedIcon className='trackActionIcon' /> : <PlayArrowRoundedIcon className='trackActionIcon' />}
+              <IconButton className='playerIcon' onClick={playAlbum}>
+                  {song.isUsing && play ? <PauseRounded className='trackActionIcon' /> : <PlayArrowRounded className='trackActionIcon' />}
               </IconButton>
               <IconButton className='playerIcon' onClick={handleFav}>
-                  {fav ? <FavoriteRoundedIcon className='favIcon trackActionIcon' /> : <FavoriteBorderRoundedIcon className='trackActionIcon'/>}
+                  {isAuthed ? (fav ? <FavoriteRounded className='favIcon trackActionIcon' /> : <FavoriteBorderRounded className='trackActionIcon'/>) : <FavoriteBorderRounded className='trackActionIcon'/>}
               </IconButton>
           </div>
           <div className='trackList'>

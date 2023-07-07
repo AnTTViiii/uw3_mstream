@@ -27,17 +27,10 @@
         overflow: hidden;
         >p {
             margin: 5px 0;
-            font-size: small;
             white-space: nowrap;
-        }
-    }
-    >div > p {
-        >a {
-            font-weight: bold;
-        }
-        margin: 0;
-        >span:not(:last-of-type)::after {
-            content: ', ';
+            >span:not(:last-of-type)::after {
+                content: ', ';
+            }
         }
     }
     .playcontrol {

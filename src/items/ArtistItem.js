@@ -19,7 +19,7 @@ function ArtistItem({item}) {
         <div className='artistFollower'>
             <p>{dot3digits(item.follower)}</p>
             <IconButton className='followIcon' onClick={handleFollow}>
-                {follow ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
+                {follow ? <StarRoundedIcon className='starIcon' /> : <StarBorderRoundedIcon />}
             </IconButton>
         </div>
       </div>

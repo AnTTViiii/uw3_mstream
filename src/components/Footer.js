@@ -8,7 +8,7 @@ function Footer() {
       <div className='f-left'>&#169; {thisYear === 2023 ? 2023 : '2023 - ' + thisYear} UW3 mStream</div>
       <div className='f-right'>
         <Link to={`#`}>About</Link>&nbsp;|&nbsp;
-        <Link to={`#`}>Github</Link>&nbsp;|&nbsp;
+        <Link to={`https://github.com/AnTTViiii/uw3_mstream`}>Github</Link>&nbsp;|&nbsp;
         <Link to={`#`}>Report</Link>&nbsp;|&nbsp;
         <Link to={`#`}>Slide</Link>
       </div>

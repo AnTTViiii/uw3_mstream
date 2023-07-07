@@ -1,0 +1,48 @@
+.accHeader {
+    width: calc(100%-20px);
+    padding: 10px;
+    border-radius:10px;
+    aspect-ratio: 3;
+    background-color: rgba(106, 74, 160, 0.255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.accHeader .avatar {
+    position: relative;
+}
+.accHeader .avatar img {
+    width: 25vh;
+    height: 25vh;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.accHeader .avatar input[type=file] {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.accountTabContainer {
+    display: flex;
+    column-gap: 2vh;
+    justify-content: center;
+}
+.accountTab {
+    padding: 10px 5px;
+    text-align: center;
+    background-color: transparent;
+    border: 2px solid transparent;
+    font-size: large;
+    color: white;
+    cursor: pointer;
+    &:hover {
+        color: yellow;
+    }
+    &.active {
+        font-weight: bold;
+        color: yellow;
+        border-bottom: 2px solid yellow;
+    }
+}
