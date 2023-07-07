@@ -14,7 +14,7 @@ function Account() {
   const Page = (tab === 1) ? UserFavorite : (tab === 2 ? UserPurchased : UserCollection);
   return (
     isAuthed ? (
-      <div className='accountPageContainer' style={{width: "80%", margin: 'auto', textAlign: 'center', position: 'relative'}}>
+      <div className='accountPageContainer' style={{width: "80%", margin: 'auto', position: 'relative'}}>
         <div className='accHeader'>
           <div className='avatar'>
             <img src='https://res.cloudinary.com/dpwehcnso/image/upload/v1687111974/z3hbswytzdpwwxmfgllc.png' alt='avt' />

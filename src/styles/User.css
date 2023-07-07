@@ -46,3 +46,62 @@
         border-bottom: 2px solid yellow;
     }
 }
+textarea {
+    box-sizing: border-box;
+    resize: none;
+}
+.allSongs {
+    .ownTracks .track {
+        padding: 10px 15px 10px 10px;
+        background-color: rgba(255, 255, 255, 0.147);
+        height: 30px;
+        width: calc(100% - 30px);
+        border: 1px solid rgba(255, 255, 255, 0.397);
+        border-left: none;
+        border-right: none;
+        display: flex;
+        align-items: center;
+        position: relative;
+        >p {
+            margin: 0;
+            justify-content: center;
+            &:nth-of-type(1) {
+                width: 4vh;
+            }
+            &:nth-of-type(2) {
+                width: 45vh;
+                padding-left: 2vh;
+            }
+            &:nth-of-type(3) {
+                width: 30vh;
+                >span:not(:last-of-type)::after {
+                    content: ', ';
+                }
+            }
+            &:nth-of-type(4) {
+                width: 40vh;
+                padding: 1vh;
+            }
+            &:nth-of-type(5) {
+                width: 25vh;
+            }
+            &:nth-of-type(6) {
+                width: 8vh;
+                padding-left: 2vh;
+                margin-left: auto;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        >img {
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+            overflow: hidden;
+        }
+        &:hover {
+            background-color: rgba(179, 174, 255, 0.359);
+        }
+        
+    }
+}
