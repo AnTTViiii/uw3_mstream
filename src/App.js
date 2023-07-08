@@ -39,10 +39,6 @@ function App() {
           path: "search",
           element: <Search />,
         },
-        // {
-        //   path: "signup",
-        //   element: <SignUp />,
-        // },
         {
           path: "newreleases",
           element: <NewReleases />,
@@ -79,10 +75,6 @@ function App() {
         //   path: ":name/albums",
         //   element: <ArtistAlbums />,
         // },
-        // {
-        //   path: "charts",
-        //   element: <Chart />,
-        // }
         {
           path: "*",
           element: <NotFound />,

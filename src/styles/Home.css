@@ -6,7 +6,7 @@
     width: 80%;
     margin: auto;
 }
-.songsList, .artistAlbums>div {
+.songsList, .artistAlbums>div, .favAlbumContainer .favAlbumBody {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
     row-gap: 20px;
@@ -17,38 +17,38 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 25px;
-    .artistItemContainer {
-        padding: 20px;
-        background-color: rgba(255, 255, 255, 0.147);
-        border-radius: 10px;
-        >img {
-            width: 100%;
-            aspect-ratio: 1.3;
-            object-fit: cover;
-            overflow: hidden;
-            border-radius: 5px;
+}
+.artistItemContainer {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.147);
+    border-radius: 10px;
+    >img {
+        width: 100%;
+        aspect-ratio: 1.3;
+        object-fit: cover;
+        overflow: hidden;
+        border-radius: 5px;
+    }
+    >div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        >p {
+            margin: 0;
         }
-        >div {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            >p {
-                margin: 0;
-            }
+    }
+    .artistFollower {
+        display: flex;
+        align-items: center;
+        >p {
+            margin: 0;
         }
-        .artistFollower {
-            display: flex;
-            align-items: center;
-            >p {
-                margin: 0;
-            }
-        }
-        .followIcon {
-            color: white;
-        }
-        &:hover {
-            background-color: rgba(135, 137, 255, 0.564);
-            transition: all 0.2s ease-out;
-        }
+    }
+    .followIcon {
+        color: white;
+    }
+    &:hover {
+        background-color: rgba(135, 137, 255, 0.564);
+        transition: all 0.2s ease-out;
     }
 }

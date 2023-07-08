@@ -1,3 +1,6 @@
+.accBody {
+    margin-bottom: 20px;
+}
 .accHeader {
     width: calc(100%-20px);
     padding: 10px;
@@ -8,6 +11,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    .accInfo {
+        text-align: center;
+    }
 }
 .accHeader .avatar {
     position: relative;
@@ -23,6 +29,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    /* z-index: -1; */
+    opacity: 0;
 }
 .accountTabContainer {
     display: flex;
@@ -79,13 +87,16 @@ textarea {
                 }
             }
             &:nth-of-type(4) {
+                display: none;
+            }
+            &:nth-of-type(5) {
                 width: 40vh;
                 padding: 1vh;
             }
-            &:nth-of-type(5) {
+            &:nth-of-type(6) {
                 width: 25vh;
             }
-            &:nth-of-type(6) {
+            &:nth-of-type(7) {
                 width: 8vh;
                 padding-left: 2vh;
                 margin-left: auto;
@@ -102,6 +113,153 @@ textarea {
         &:hover {
             background-color: rgba(179, 174, 255, 0.359);
         }
-        
+    }
+}
+.followingArtists {
+    padding: 0px 10px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 25px;
+    .artistItemContainer {
+        padding: 10px;
+    }
+}
+.formCreateALbum {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(245, 245, 245, 0.477);
+    .createAlbum {
+        border-right: 1px solid white;
+        padding-right: 20px;
+    }
+}
+.updateSong {
+    padding-bottom: 15px;
+    .btnSubmit {
+        background-color: #2a2854 !important;
+    }
+}
+.createAlbum, .upload, .updateSong {
+    >form>p {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        >input, >textarea {
+            width: 50%;
+        }
+        >input[type=file] {
+            &::-webkit-file-upload-button {
+                visibility: hidden;
+            }
+            &::before {
+                content: "Browse";
+                display: inline-block;
+                border-radius: 5px;
+                background: white;
+                color: black;
+                padding: 5px 10px;
+                outline: none;
+                white-space: nowrap;
+                -webkit-user-select: none;
+                cursor: pointer;
+            }
+        }
+    }
+    >form {
+        text-align: center;
+        >input[type=button] {
+            background: rgb(99, 91, 255);
+            border: none;
+            padding: 10px 15px;
+            color: white;
+            border-radius: 5px;
+        }
+    }
+}
+.favPlaylist .playlist .userTrackContainer {
+    >p {
+        &:nth-of-type(2) {
+            width: 40vh;
+            padding-left: 2vh;
+        }
+        &:nth-of-type(3) {
+            width: 30vh;
+            >span:not(:last-of-type)::after {
+                content: ', ';
+            }
+        }
+        &:nth-of-type(4) {
+            width: 35vh;
+            padding: 1vh;
+        }
+        &:nth-of-type(6) {
+            width: 30vh;
+            padding: 1vh;
+        }
+        &:nth-of-type(5), &:nth-of-type(8), &:nth-of-type(9) {
+            display: none;
+        }
+    }
+}
+.userPurchasedContainer {
+    margin-top: 20px;
+}
+.userPurchasedContainer .userTrackContainer {
+    >p {
+        &:nth-of-type(2) {
+            width: 45vh;
+            padding-left: 2vh;
+        }
+        &:nth-of-type(3) {
+            width: 35vh;
+            >span:not(:last-of-type)::after {
+                content: ', ';
+            }
+        }
+        &:nth-of-type(4) {
+            width: 35vh;
+            padding: 1vh;
+        }
+        &:nth-of-type(6) {
+            width: 20vh;
+            padding: 1vh;
+        }
+        &:nth-of-type(7) {
+            width: 20vh;
+            padding: 1vh;
+        }
+        &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(9), .favsIcon {
+            display: none;
+        }
+    }
+}
+.ownTracks .userTrackContainer {
+    >p {
+        &:nth-of-type(2) {
+            width: 50vh;
+            padding-left: 2vh;
+        }
+        &:nth-of-type(3) {
+            width: 35vh;
+            >span:not(:last-of-type)::after {
+                content: ', ';
+            }
+        }
+        &:nth-of-type(5) {
+            width: 35vh;
+            padding: 1vh;
+        }
+        &:nth-of-type(6) {
+            width: 25vh;
+            padding: 1vh;
+        } 
+        &:nth-of-type(4), &:nth-of-type(7), &:nth-of-type(8) {
+            display: none;
+        }
     }
 }

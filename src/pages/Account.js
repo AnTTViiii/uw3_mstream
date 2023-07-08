@@ -18,7 +18,7 @@ function Account() {
         <div className='accHeader'>
           <div className='avatar'>
             <img src='https://res.cloudinary.com/dpwehcnso/image/upload/v1687111974/z3hbswytzdpwwxmfgllc.png' alt='avt' />
-            <input type='file' />
+            <input type='file' title='Change Avatar' />
           </div>
           <div className='accInfo'>
             <h1>{JSON.parse(localStorage.getItem("user")).username}</h1>
